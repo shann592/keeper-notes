@@ -1,0 +1,20 @@
+<%- include('./partials/header'); -%>
+    <%- include('./partials/form'); -%>
+    
+        <% notes.forEach(({title, content, date, _id})=> { %>
+            <form action="/delete" method="post" class="note<%= _id %>">
+            <div class="note">
+                <h1><%=title %></h1>
+                <p><%=content %></p>
+                <input type="hidden" name="noteId" value="<%=_id %>">
+                <span class="bottom-sec">
+                    <p class="notes-date"><%=date %></p>
+                    <span class="features">
+                        <i onclick="editNote(this)" name="btn" value="editNote" class="fa fa-pencil" aria-hidden="true"></i>
+                        <i onClick="document.querySelector('.note<%= _id %>').submit()" name="deleteBtn" class="fa fa-trash" aria-hidden="true"></i>
+                    </span>
+                </span>
+            </div>
+        </form>
+            <% }) %>
+                <%- include('./partials/footer'); -%>

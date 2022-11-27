@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="css/login.css">
+    <title>Login-Register</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/loginOrRegister" method="post">
+            <input type="email" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="hidden" id="form-type" name="formType" />
+            <button type="submit" onclick="document.getElementById('form-type').value='login'">Login</button>
+            <div class="registerBtnDiv"><button type="submit"
+                    onclick="document.getElementById('form-type').value='register'">Register</button></div>
+            <!-- <div class="google"><button class="g-btn"><i class="fa fa-google-plus" aria-hidden="true"></i> <span class="gText">Sign in with google</span></button></div> -->
+        </form>
+    </div>
+</body>
+
+</html>

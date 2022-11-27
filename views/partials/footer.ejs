@@ -1,0 +1,21 @@
+<footer>
+    <p>Copyright &copy; <%= new Date().getFullYear() %></p>
+</footer>
+<script>
+    const editNote = (event) => {
+        const mainParent = event.parentElement.parentElement.parentElement;
+        const title = mainParent.firstChild.nextSibling.textContent;
+        const content = mainParent.firstChild.nextSibling.nextSibling.nextSibling.textContent;
+        const id = mainParent.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value;
+        console.log(id)
+        const formToEdit = document.getElementById('formForEdit');
+        formToEdit.setAttribute('action', '/update');
+        document.getElementById('editTitle').value = title;
+        document.getElementById('editContent').value = content;
+        document.getElementById('hiddenEditId').value = id;
+        document.getElementById('editBtn').textContent = 'Edit';
+    }
+</script>
+</body>
+
+</html>
