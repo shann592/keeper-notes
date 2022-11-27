@@ -112,7 +112,7 @@ app.route('/loginOrRegister')
                     console.log('Error while login: ' + err);
                 } else {
                     passport.authenticate('local')(req, res, () => {
-                        console.log(req);
+
                         res.redirect('notes');
                     });
                 }
@@ -176,8 +176,5 @@ app.post('/update', (req, res) => {
 })
 
 // server running on port 3000
-let port = process.env.PORT;
-if (port === null || port === "") {
-    port = 3000
-}
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('Server is running on port 3000'));
