@@ -95,7 +95,7 @@ app.route('/loginOrRegister')
             User.register({ username: req.body.username }, req.body.password, (err, user) => {
                 if (err) {
                     console.log('Error encountered during registeration: ' + err);
-                    res.redirect('/loginOrRegister');
+                    res.redirect('/loginOrRegister/' + err["name"]);
                 } else {
                     passport.authenticate('local')(req, res, () => {
                         res.redirect('notes');
@@ -112,6 +112,7 @@ app.route('/loginOrRegister')
                     console.log('Error while login: ' + err);
                 } else {
                     passport.authenticate('local')(req, res, () => {
+                        console.log(req);
                         res.redirect('notes');
                     });
                 }
